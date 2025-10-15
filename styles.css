@@ -3,10 +3,12 @@
 
   --cell-size: 3rem;
   --cell-border-size: max(calc(var(--cell-size) / 16), 1.5px);
-  --cell-background-color: black;
   --cell-border-color: oklch(30% 0 0);
 
-  --hand-color: oklch(90% 0.14 190);
+  --hand-color: #ff0000;
+  --cell-background-color: #0a0a0a;
+  --cell-border-color: #ff0000;
+  --hand-glow: 0 0 8px #ff0000, 0 0 16px #ff0000, 0 0 24px #ff0000;
 }
 
 * {
@@ -16,7 +18,11 @@
 }
 
 body {
-  background-color: oklch(0% 0 0);
+  background-image: url('bg-img.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 #app {
@@ -32,7 +38,7 @@ body {
   gap: var(--field-gap);
 }
 
-.clock > .pair {
+.clock>.pair {
   display: flex;
   gap: 0.125rem;
 }
@@ -49,11 +55,11 @@ body {
   width: var(--cell-size);
   position: relative;
   background-color: var(--cell-background-color);
-  border: var(--cell-border-size) solid var(--cell-border-color);
-  border-radius: 1000px;
+  border: var(--cell-border-size) solid rgba(255, 255, 255, 0.082);
+  border-radius: 1000px; 
 }
 
-.cell > .hand {
+.cell>.hand {
   width: 50%;
   height: var(--cell-border-size);
   background-color: var(--hand-color);
@@ -66,7 +72,7 @@ body {
   transition: rotate 250ms;
 }
 
-.cell > .dot {
+.cell>.dot {
   width: var(--cell-border-size);
   height: var(--cell-border-size);
   position: absolute;
@@ -74,7 +80,7 @@ body {
   top: 50%;
   translate: -50% -50%;
   background-color: var(--hand-color);
-  border-radius: 1000px;
+  border-radius: 1000px; 
 }
 
 @media (max-width: 1440px) {
@@ -86,7 +92,6 @@ body {
 @media (max-width: 1024px) {
   :root {
     --field-gap: 1rem;
-
     --cell-size: 1.5rem;
   }
 }
@@ -94,8 +99,11 @@ body {
 @media (max-width: 768px) {
   :root {
     --field-gap: 0.5rem;
-
     --cell-size: 1rem;
+  }
+  body {
+    background-attachment: scroll;
+    background-position: center top;
   }
 }
 
