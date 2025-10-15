@@ -3,10 +3,10 @@
 
   --cell-size: 3rem;
   --cell-border-size: max(calc(var(--cell-size) / 16), 1.5px);
-  --cell-background-color: oklch(20% 0 0);
+  --cell-background-color: black;
   --cell-border-color: oklch(30% 0 0);
 
-  --hand-color: oklch(94.75% 0.1916 119.15);
+  --hand-color: oklch(90% 0.14 190);
 }
 
 * {
